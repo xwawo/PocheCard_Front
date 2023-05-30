@@ -6,6 +6,8 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { CardsComponent } from '../../cards/cards.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { IconsComponent } from '../../icons/icons.component';
+import { DisplayComponent } from '../../cards/display/display.component';
+import { CreateComponent } from '../../cards/create/create.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -31,6 +33,8 @@ import {MatSelectModule} from '@angular/material/select';
     CardsComponent,
     UserProfileComponent,
     IconsComponent,
+    DisplayComponent,
+    CreateComponent,
   ]
 })
 
