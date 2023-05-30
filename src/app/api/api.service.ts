@@ -25,7 +25,7 @@ export class ApiService {
   //------------ METHOD GET -----------//
 
   getCards(): Observable<getApiCards> {
-    return this.http.get<getApiCards>(this.apiBaseUrl+ '/card');
+    return this.http.get<getApiCards>(this.apiBaseUrl+ '/card/all');
   }
 
   getCardById(id: number): Observable<getApiCards> {
@@ -35,8 +35,7 @@ export class ApiService {
   //------------ METHOD POST -----------//
 
   createCard(data: NgForm): Observable<NgForm> {  
-    console.warn(JSON.stringify(data.value));
-    return this.http.post<NgForm>(this.apiBaseUrl + '/card', data, this.httpOptions);  
+    return this.http.post<NgForm>(this.apiBaseUrl + '/card', data);  // , this.httpOptions
   }
 
 

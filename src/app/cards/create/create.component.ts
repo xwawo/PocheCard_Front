@@ -13,7 +13,7 @@ export class CreateComponent implements OnInit {
 
 
   createCard(dataform: NgForm) {
-    // console.warn(JSON.stringify(dataform.value));
+    console.warn(JSON.stringify(dataform.value));
     this.apiService.createCard(dataform.value).subscribe((resultat: NgForm)=>{
     console.warn(resultat);   
     }); 

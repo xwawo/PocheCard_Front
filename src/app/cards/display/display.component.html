@@ -9,7 +9,7 @@
                     </div>
 
                     <div class="scrollbarClass card-body">
-                        <div *ngFor="let p of cards; index as i" class="table-responsive">
+                        <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
@@ -52,58 +52,62 @@
                                         Delete
                                     </th>
                                 </thead>
+                                
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            {{p.id}}
-                                        </td>
-                                        <td>
-                                            {{p.name}}
-                                        </td>
-                                        <td>
-                                            {{p.description}}
-                                        </td>
-                                        <td>
-                                            {{p.family}}
-                                        </td>
-                                        <td class="text-primary">
-                                            {{p.affinity}}
-                                        </td>
-                                        <td>
-                                            {{p.imgUrl}}
-                                        </td>
-                                        <td>
-                                            {{p.smallImgUrl}}
-                                        </td>
-                                        <td>
-                                            {{p.energy}}
-                                        </td>
-                                        <td>
-                                            {{p.hp}}
-                                        </td>
-                                        <td>
-                                            {{p.defense}}
-                                        </td>
-                                        <td>
-                                            {{p.attack}}
-                                        </td>
-                                        <td>
-                                            {{p.userId}}
-                                        </td>
-                                        <td>
-                                            Lien Update
-                                        </td>
-                                        <td>
-                                            Lien Delete
-                                        </td>
-                                    </tr>
+                                    <div *ngFor="let p of cards; index as i">
+                                        <tr>
+                                            <td>
+                                                {{p.id}}
+                                            </td>
+                                            <td>
+                                                {{p.name}}
+                                            </td>
+                                            <td>
+                                                {{p.description}}
+                                            </td>
+                                            <td>
+                                                {{p.family}}
+                                            </td>
+                                            <td class="text-primary">
+                                                {{p.affinity}}
+                                            </td>
+                                            <td>
+                                                {{p.imgUrl}}
+                                            </td>
+                                            <td>
+                                                {{p.smallImgUrl}}
+                                            </td>
+                                            <td>
+                                                {{p.energy}}
+                                            </td>
+                                            <td>
+                                                {{p.hp}}
+                                            </td>
+                                            <td>
+                                                {{p.defense}}
+                                            </td>
+                                            <td>
+                                                {{p.attack}}
+                                            </td>
+                                            <td>
+                                                {{p.userId}}
+                                            </td>
+                                            <td>
+                                                Lien Update
+                                            </td>
+                                            <td>
+                                                Lien Delete
+                                            </td>
+                                        </tr>
+                                    </div>
                                 </tbody>
+                                
+                                <!-- <div #elseBlock="">
+                                    <p> Aucune données disponible </p>
+                                </div> -->
+
                             </table>
                         </div>
-                        <div #elseBlock="">
-                            <p> Aucune données disponible </p>
-                        </div>
-
                     </div>
                 </div>
             </div>
