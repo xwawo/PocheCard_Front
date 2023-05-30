@@ -10,8 +10,8 @@
 
                     <div class="scrollbarClass card-body">
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
+                            <table class="table table-bordered mt-3">
+                                <thead class="thead-light text-primary">
                                     <th>
                                         ID
                                     </th>
@@ -34,6 +34,9 @@
                                         Small Image
                                     </th>
                                     <th>
+                                        Energy
+                                    </th>
+                                    <th>
                                         HP
                                     </th>
                                     <th>
@@ -54,8 +57,7 @@
                                 </thead>
                                 
                                 <tbody>
-                                    <div *ngFor="let p of cards; index as i">
-                                        <tr>
+                                        <tr *ngFor="let p of cards; index as i">
                                             <td>
                                                 {{p.id}}
                                             </td>
@@ -68,7 +70,7 @@
                                             <td>
                                                 {{p.family}}
                                             </td>
-                                            <td class="text-primary">
+                                            <td>
                                                 {{p.affinity}}
                                             </td>
                                             <td>
@@ -93,13 +95,12 @@
                                                 {{p.userId}}
                                             </td>
                                             <td>
-                                                Lien Update
+                                                <button mat-raised-button type="submit" (click)="update(userId)" class="btn btn-danger pull-right">Update</button> 
                                             </td>
                                             <td>
-                                                Lien Delete
+                                                <button mat-raised-button type="submit" (click)="ondelete(userId)" class="btn btn-danger pull-right">Delete</button>  
                                             </td>
                                         </tr>
-                                    </div>
                                 </tbody>
                                 
                                 <!-- <div #elseBlock="">

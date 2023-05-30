@@ -1,16 +1,16 @@
 export class Card { 
     
-    id: number = 0;
+    id: Number = 0;
     name: String = "null";
     description: String = "null";
     family: String = "null";
     affinity: String = "null";
     imgUrl: String = "null";
     smallImgUrl: String = "null";
-    energy: number = 0;
-    hp:number = 0;
-    defense: number = 0;
-    attack: number = 0;
-    userId: number = 0;
+    energy: Number = 0;
+    hp:Number = 0;
+    defense: Number = 0;
+    attack: Number = 0;
+    userId: Number = 0;
         
 }
