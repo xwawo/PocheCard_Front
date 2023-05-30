@@ -35,14 +35,14 @@ export class UserProfileComponent implements OnInit {
     const url = 'https://api.example.com/endpoint';
     console.log(this.user);
     if (
-        this.user.username &&
+        this.user.login &&
         this.user.email &&
         this.user.firstName &&
         this.user.lastName &&
-        this.user.password
+        this.user.pwd
     ) {
       // Check if the passwords match
-      if (this.user.password === this.repeatPassword) {
+      if (this.user.pwd === this.repeatPassword) {
         // Registration logic
         this.http.post<any[]>('http://localhost:8080/user',this.user, optionRequete).subscribe(
             (response) => {
