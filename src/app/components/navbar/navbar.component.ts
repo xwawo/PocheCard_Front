@@ -11,29 +11,30 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
-      mobile_menu_visible: any = 0;
+    /* mobile_menu_visible: any = 0;
     private toggleButton: any;
-    private sidebarVisible: boolean;
+    private sidebarVisible: boolean; */
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
-      this.location = location;
-          this.sidebarVisible = false;
+        this.location = location;
+        // this.sidebarVisible = false;
     }
 
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
-      const navbar: HTMLElement = this.element.nativeElement;
+      /* const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
       this.router.events.subscribe((event) => {
-        this.sidebarClose();
+        // this.sidebarClose();
          var $layer: any = document.getElementsByClassName('close-layer')[0];
          if ($layer) {
            $layer.remove();
            this.mobile_menu_visible = 0;
          }
-     });
+     }); */
     }
 
+    /*
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
@@ -51,16 +52,20 @@ export class NavbarComponent implements OnInit {
         this.sidebarVisible = false;
         body.classList.remove('nav-open');
     };
+    */
+
+
+    /*
     sidebarToggle() {
         // const toggleButton = this.toggleButton;
         // const body = document.getElementsByTagName('body')[0];
         var $toggle = document.getElementsByClassName('navbar-toggler')[0];
 
-        if (this.sidebarVisible === false) {
+        // if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {
             this.sidebarClose();
-        }
+        } //
         const body = document.getElementsByTagName('body')[0];
 
         if (this.mobile_menu_visible == 1) {
@@ -108,6 +113,7 @@ export class NavbarComponent implements OnInit {
 
         }
     };
+    */
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -120,6 +126,6 @@ export class NavbarComponent implements OnInit {
               return this.listTitles[item].title;
           }
       }
-      return 'Dashboard';
+      return 'Pochemon Card The Game';     // Dashboard
     }
 }

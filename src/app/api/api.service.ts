@@ -16,7 +16,7 @@ export class ApiService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Origin': 'http://localhost:8080',    // '*',
       'Content-Type': 'application/json, Access-Control-Allow-Origin'
     }),
   };
@@ -28,8 +28,8 @@ export class ApiService {
     return this.http.get<getApiCards>(this.apiBaseUrl+ '/card/all');
   }
 
-  getCardById(id: number): Observable<getApiCards> {
-    return this.http.get<getApiCards>(this.apiBaseUrl+ '/card/'+ id);
+  getCardById(id: number): Observable<deleteCard> {
+    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/card/'+ id, this.httpOptions); // 
   }
 
   //------------ METHOD POST -----------//
@@ -58,4 +58,10 @@ export interface getApiCards {
   attack: number;
   userId: number;
 
+}
+
+export interface deleteCard {
+  
+  id: number;
+  
 }

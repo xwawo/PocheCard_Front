@@ -22,4 +22,13 @@ export class DisplayComponent implements OnInit {
     } );
   }
 
+  public ondelete(id: number) {
+    console.warn(JSON.stringify(id));
+    this.apiService.getCardById(id).subscribe((res: any)=>{
+      console.warn(res);   
+      }); 
+  }
+
+  
+
 }
