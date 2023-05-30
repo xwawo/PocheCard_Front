@@ -1,22 +1,22 @@
 export class User {
-    username: string;
+    login: string;
     email: string;
     firstName: string;
     lastName: string;
-    password: string;
+    pwd: string;
     repeatPassword: string;
 
     constructor(
-        username: string,
+        login: string,
         email: string,
         firstName: string,
         lastName: string,
-        password: string,
+        pwd: string,
     ) {
-        this.username = username;
+        this.login = login;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = password;
+        this.pwd = pwd;
     }
 }
