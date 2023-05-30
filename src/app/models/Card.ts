@@ -1,5 +1,6 @@
 export class Card { 
     
+    id: number = 0;
     name: String = "null";
     description: String = "null";
     family: String = "null";

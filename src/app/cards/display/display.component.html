@@ -7,8 +7,9 @@
                         <h4 class="card-title ">Affichage des Cards</h4>
                         <p class="card-category"> Différents cards à la vente </p>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
+
+                    <div class="scrollbarClass card-body">
+                        <div *ngFor="let p of cards; index as i" class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
@@ -54,37 +55,40 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            1
+                                            {{p.id}}
                                         </td>
                                         <td>
-                                            Dakota Rice
+                                            {{p.name}}
                                         </td>
                                         <td>
-                                            Niger
+                                            {{p.description}}
                                         </td>
                                         <td>
-                                            Oud-Turnhout
+                                            {{p.family}}
                                         </td>
                                         <td class="text-primary">
-                                            $33,789
+                                            {{p.affinity}}
                                         </td>
                                         <td>
-                                            Test
+                                            {{p.imgUrl}}
                                         </td>
                                         <td>
-                                            Test
+                                            {{p.smallImgUrl}}
                                         </td>
                                         <td>
-                                            Test
+                                            {{p.energy}}
                                         </td>
                                         <td>
-                                            Test
+                                            {{p.hp}}
                                         </td>
                                         <td>
-                                            Test
+                                            {{p.defense}}
                                         </td>
                                         <td>
-                                            26
+                                            {{p.attack}}
+                                        </td>
+                                        <td>
+                                            {{p.userId}}
                                         </td>
                                         <td>
                                             Lien Update
@@ -93,52 +97,13 @@
                                             Lien Delete
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>
-                                            Minerva Hooper
-                                        </td>
-                                        <td>
-                                            Curaçao
-                                        </td>
-                                        <td>
-                                            Sinaai-Waas
-                                        </td>
-                                        <td class="text-primary">
-                                            $23,789
-                                        </td>
-                                        <td>
-                                            Test
-                                        </td>
-                                        <td>
-                                            Test
-                                        </td>
-                                        <td>
-                                            Test
-                                        </td>
-                                        <td>
-                                            Test
-                                        </td>
-                                        <td>
-                                            Test
-                                        </td>
-                                        <td>
-                                            26
-                                        </td>
-                                        <td>
-                                            Lien Update
-                                        </td>
-                                        <td>
-                                            Lien Delete
-                                        </td>
-
-                                    </tr>
-        
                                 </tbody>
                             </table>
                         </div>
+                        <div #elseBlock="">
+                            <p> Aucune données disponible </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
