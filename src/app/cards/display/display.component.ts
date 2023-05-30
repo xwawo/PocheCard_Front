@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../api/api.service';
+
 
 @Component({
   selector: 'app-display',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  cards: any;
+
+  constructor(private apiService: ApiService) { 
+  } 
 
   ngOnInit(): void {
+
+    this.apiService.getCards().subscribe((res: any) => { 
+      this.cards=res;
+
+    } );
   }
 
 }

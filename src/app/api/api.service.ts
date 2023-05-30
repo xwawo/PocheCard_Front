@@ -46,6 +46,7 @@ export class ApiService {
 
 export interface getApiCards {
   
+  id: number;
   name: String;
   description: String;
   family: String;
