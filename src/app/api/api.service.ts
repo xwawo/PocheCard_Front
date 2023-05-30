@@ -23,14 +23,20 @@ export class ApiService {
 
 
   //------------ METHOD GET -----------//
+
   getCards(): Observable<getApiCards> {
-    return this.http.get<getApiCards>(this.apiBaseUrl+ '/api/v1/cards');
+    return this.http.get<getApiCards>(this.apiBaseUrl+ '/card');
+  }
+
+  getCardById(id: number): Observable<getApiCards> {
+    return this.http.get<getApiCards>(this.apiBaseUrl+ '/card/'+ id);
   }
 
   //------------ METHOD POST -----------//
+
   createCard(data: NgForm): Observable<NgForm> {  
     console.warn(JSON.stringify(data.value));
-    return this.http.post<NgForm>(this.apiBaseUrl + '/api/v1/createCards', data, this.httpOptions);  
+    return this.http.post<NgForm>(this.apiBaseUrl + '/card', data, this.httpOptions);  
   }
 
 
