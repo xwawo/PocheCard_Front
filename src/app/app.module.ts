@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-/* import { DisplayComponent } from './cards/display/display.component';
-import { CreateComponent } from './cards/create/create.component'; */
 
 
 @NgModule({
@@ -24,9 +22,6 @@ import { CreateComponent } from './cards/create/create.component'; */
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    /* DisplayComponent,
-    CreateComponent, */
-
   ],
   providers: [],
   bootstrap: [AppComponent]

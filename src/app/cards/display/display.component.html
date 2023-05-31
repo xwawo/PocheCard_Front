@@ -57,6 +57,7 @@
                                 </thead>
                                 
                                 <tbody>
+                                    <!-- <div *ngIf="cards"; else BlockElse> -->
                                         <tr *ngFor="let p of cards; index as i">
                                             <td>
                                                 {{p.id}}
@@ -101,9 +102,10 @@
                                                 <button mat-raised-button type="submit" (click)="ondelete(p.id)" class="btn btn-danger pull-right">Delete</button>  
                                             </td>
                                         </tr>
+                                    <!-- </div> -->
                                 </tbody>
                                 
-                                <!-- <div #elseBlock="">
+                                <!-- <div #BlockElse="">
                                     <p> Aucune données disponible </p>
                                 </div> -->
 
