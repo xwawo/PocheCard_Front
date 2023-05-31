@@ -10,6 +10,7 @@ import { ApiService } from '../../api/api.service';
 export class DisplayComponent implements OnInit {
 
   cards: any;
+  card: any;
 
   constructor(private apiService: ApiService) { 
   } 
@@ -20,6 +21,10 @@ export class DisplayComponent implements OnInit {
       this.cards=res;
 
     } );
+  }
+
+  public getCard(data: any) {
+    this.card = data;
   }
 
   public ondelete(id: number) {
