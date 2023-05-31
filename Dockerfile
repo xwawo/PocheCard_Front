@@ -1,5 +1,5 @@
 #stage 1
-FROM node:latest as node
+FROM node:18.14.0 as node
 WORKDIR /front-service
 COPY ./PocheCard_Front .
 RUN npm install --force
