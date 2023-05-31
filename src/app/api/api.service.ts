@@ -39,12 +39,18 @@ export class ApiService {
     return this.http.post<NgForm>(this.apiBaseUrl + '/card', data);  // , this.httpOptions
   }
 
-  registerUser(data: User): Observable<NgForm> {
-    return this.http.post<NgForm>(this.apiBaseUrl + '/user', data,this.httpOptions );  // , this.httpOptions
+  registerUser(data: User): Observable<any[]> {
+    const optionRequete = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'responseType': 'json'
+      })
+    }
+    return this.http.post<any[]>('http://localhost:8080/user',data, optionRequete)
   }
 
-  loginUser(username : String, password : String): Observable<NgForm> {
-    return this.http.get<NgForm>(this.apiBaseUrl + "auth/" + username +'/ '+ password, this.httpOptions);  // , this.httpOptions
+  loginUser(username : String, password : String): Observable<any> {
+    return this.http.get<any[]>("http://localhost:8080/user/auth/" + username +'/'+ password, this.httpOptions);  // , this.httpOptions
   }
 
 

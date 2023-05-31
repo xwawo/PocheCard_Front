@@ -4,10 +4,10 @@
           <div class="col-md-8">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title">Register</h4>
-                      <p class="card-category">Create a new account</p>
+                      <h4 class="card-title">{{this.isLogged ? 'Your account info' : 'Register'}}</h4>
+                      <p class="card-category">{{this.isLogged ? '' : 'Create a new account'}}</p>
                   </div>
-                  <div class="card-body" *ngIf="!this.isLogged; else elseBlock">
+                  <div class="card-body" *ngIf="!this.isLogged; else elseRegisterBlock">
                       <form (ngSubmit)="registerUser()">
                           <div class="row">
                               <div class="col-md-6">
@@ -49,7 +49,7 @@
                           <div class="clearfix"></div>
                       </form>
                   </div>
-                  <ng-template #elseBlock>
+                  <ng-template #elseRegisterBlock>
                       <div class="card-body">
                           <div>
                               <div class="row">
@@ -76,7 +76,6 @@
                                       </mat-form-field>
                                   </div>
                               </div>
-
                           </div>
                       </div>
                   </ng-template>
@@ -89,7 +88,7 @@
                         <img class="img" src="./assets/img/faces/photo.png" />
                     </a>
                 </div>
-                <div class="card-body">
+                <div class="card-body" *ngIf="!this.isLogged; else elseLoginBlock">
                     <form (ngSubmit)="login()">
                         <div class="column">
                             <div class="col-md-12">
@@ -106,6 +105,16 @@
                         <button mat-raised-button type="submit" class="btn btn-danger btn-round">Log in</button>
                     </form>
                 </div>
+                <ng-template #elseLoginBlock>
+                    <div class="column">
+                        <div class="col-md-12">
+                            <h3>#{{this.user.login}}</h3>
+                        </div>
+                        <div class="col-md-12">
+
+                        </div>
+                    </div>
+                </ng-template>
             </div>
         </div>
       </div>

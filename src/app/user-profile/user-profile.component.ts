@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
 
   isLogged: boolean
   loginData : {username : String, password : String}
-  user: User = new User('', '', '', '', ''); // Initialize a User object with empty strings
+  user: User = new User('', '', '', '', '', 0.0); // Initialize a User object with empty strings
   public repeatPassword: string;
 
   constructor(
@@ -30,12 +30,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   registerUser() {
-    const optionRequete = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-        'responseType': 'json'
-      })
-    }
     if (
         this.user.login &&
         this.user.email &&
@@ -46,10 +40,12 @@ export class UserProfileComponent implements OnInit {
       // Check if the passwords match
       if (this.user.pwd === this.repeatPassword) {
         // Registration logic
+        delete this.user['account'];
         this.apiService.registerUser(this.user).subscribe(
             (response) => {
               this.isLogged = true;
-              console.log(response);
+              this.user = response as unknown as User;
+              alert('User created successfully')
             }
         )
         // You can perform further actions like making an API call to register the user
@@ -70,14 +66,15 @@ export class UserProfileComponent implements OnInit {
         'responseType': 'json'
       })
     }
-    const queryParams = `?username=${this.user.login}&password=${this.user.pwd}`;
-    if (this.user.login && this.user.pwd) {
+    if (this.loginData.username && this.loginData.password) {
       // Login logic
       this.apiService.loginUser(this.loginData.username, this.loginData.password).subscribe(
           (response ) => {
-           if (response as unknown as boolean === true) {
+           if (response) {
              this.isLogged = true;
-             console.log("User logged in");
+             console.log("User logged in",response);
+                alert('User logged in successfully')
+             this.user = response as unknown as User;
            }
           }
       )
