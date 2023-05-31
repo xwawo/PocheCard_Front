@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../models/User";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {ApiService} from "../api/api.service";
+import {ApiService} from "../services/api.service";
+import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -20,7 +22,8 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
       private http: HttpClient,
-      private apiService: ApiService
+      private apiService: ApiService,
+      private userService: UserService
   ) {
     this.isLogged = false;
   }
@@ -45,6 +48,7 @@ export class UserProfileComponent implements OnInit {
             (response) => {
               this.isLogged = true;
               this.user = response as unknown as User;
+              this.userService.setUser(this.user);
               alert('User created successfully')
             }
         )
@@ -75,6 +79,8 @@ export class UserProfileComponent implements OnInit {
              console.log("User logged in",response);
                 alert('User logged in successfully')
              this.user = response as unknown as User;
+             this.userService.setUser(this.user);
+
            }
           }
       )
