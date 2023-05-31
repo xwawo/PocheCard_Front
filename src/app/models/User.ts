@@ -4,7 +4,6 @@ export class User {
     firstName: string;
     lastName: string;
     pwd: string;
-    repeatPassword: string;
 
     constructor(
         login: string,

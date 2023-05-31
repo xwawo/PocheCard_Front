@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Card } from '../models/Card';
 import {NgForm} from '@angular/forms';
+import {User} from "../models/User";
 
 
 @Injectable({
@@ -36,6 +37,14 @@ export class ApiService {
 
   createCard(data: NgForm): Observable<NgForm> {  
     return this.http.post<NgForm>(this.apiBaseUrl + '/card', data);  // , this.httpOptions
+  }
+
+  registerUser(data: User): Observable<NgForm> {
+    return this.http.post<NgForm>(this.apiBaseUrl + '/user', data,this.httpOptions );  // , this.httpOptions
+  }
+
+  loginUser(username : String, password : String): Observable<NgForm> {
+    return this.http.get<NgForm>(this.apiBaseUrl + "auth/" + username +'/ '+ password, this.httpOptions);  // , this.httpOptions
   }
 
 
