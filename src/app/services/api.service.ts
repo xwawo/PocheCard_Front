@@ -26,17 +26,17 @@ export class ApiService {
   //------------ METHOD GET -----------//
 
   getCards(): Observable<getApiCards> {
-    return this.http.get<getApiCards>(this.apiBaseUrl+ '/card/all');
+    return this.http.get<getApiCards>(this.apiBaseUrl+ '/cards');
   }
 
   getCardById(id: number): Observable<deleteCard> {
-    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/card/'+ id, this.httpOptions); // 
+    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/cards/'+ id, this.httpOptions); //
   }
 
   //------------ METHOD POST -----------//
 
   createCard(data: NgForm): Observable<NgForm> {  
-    return this.http.post<NgForm>(this.apiBaseUrl + '/card', data);  // , this.httpOptions
+    return this.http.post<NgForm>(this.apiBaseUrl + '/cards', data);  // , this.httpOptions
   }
 
   registerUser(data: User): Observable<any[]> {
@@ -46,11 +46,11 @@ export class ApiService {
         'responseType': 'json'
       })
     }
-    return this.http.post<any[]>('http://localhost:8080/user',data, optionRequete)
+    return this.http.post<any[]>('http://localhost:8080/users',data, optionRequete)
   }
 
   loginUser(username : String, password : String): Observable<any> {
-    return this.http.get<any[]>("http://localhost:8080/user/auth/" + username +'/'+ password, this.httpOptions);  // , this.httpOptions
+    return this.http.get<any[]>("http://localhost:8080/users/auth/" + username +'/'+ password, this.httpOptions);  // , this.httpOptions
   }
 
 

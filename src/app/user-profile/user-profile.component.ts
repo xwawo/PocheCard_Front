@@ -46,9 +46,6 @@ export class UserProfileComponent implements OnInit {
         delete this.user['account'];
         this.apiService.registerUser(this.user).subscribe(
             (response) => {
-              this.isLogged = true;
-              this.user = response as unknown as User;
-              this.userService.setUser(this.user);
               alert('User created successfully')
             }
         )
@@ -77,14 +74,16 @@ export class UserProfileComponent implements OnInit {
            if (response) {
              this.isLogged = true;
              console.log("User logged in",response);
-                alert('User logged in successfully')
+             alert('User logged in successfully')
              this.user = response as unknown as User;
              this.userService.setUser(this.user);
-
+           }
+              else {
+                console.log("User not logged in", response);
+                alert('User not found, try different credentials')
            }
           }
       )
-      this.isLogged = true;
     }
     else {
       alert('Please fill in all fields');
