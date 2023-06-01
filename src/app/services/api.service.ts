@@ -11,7 +11,7 @@ import {User} from "../models/User";
 })
 export class ApiService {
 
-  apiBaseUrl = 'http://reverse-proxy:80/api';
+  apiBaseUrl = 'http://localhost:80/api';
 
   constructor(private http: HttpClient) { }
 
@@ -46,11 +46,11 @@ export class ApiService {
         'responseType': 'json'
       })
     }
-    return this.http.post<any[]>('http://localhost:8080/users',data, optionRequete)
+    return this.http.post<any[]>(this.apiBaseUrl+ '/users',data, optionRequete)
   }
 
   loginUser(username : String, password : String): Observable<any> {
-    return this.http.get<any[]>("http://localhost:8080/users/auth/" + username +'/'+ password, this.httpOptions);  // , this.httpOptions
+    return this.http.post<any[]>(this.apiBaseUrl+ "/users/auth/"+ username +'/'+ password, this.httpOptions);  // , this.httpOptions
   }
 
 
