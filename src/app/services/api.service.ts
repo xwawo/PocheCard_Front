@@ -11,13 +11,13 @@ import {User} from "../models/User";
 })
 export class ApiService {
 
-  apiBaseUrl = 'http://reverse-proxy:80';
+  apiBaseUrl = 'http://reverse-proxy:80/api';
 
   constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': 'http://reverse-proxy:80',    // '*',
+      'Access-Control-Allow-Origin': this.apiBaseUrl,    // '*',
       'Content-Type': 'application/json, Access-Control-Allow-Origin'
     }),
   };
