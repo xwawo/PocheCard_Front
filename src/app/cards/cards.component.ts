@@ -14,7 +14,7 @@ export class CardsComponent implements OnInit {
   }
 
 
-  public openCity(evt: any, cityName: any) {
+  public openCard(evt: any, cityName: any) {
     // Declare all variables
     var i, tabcontent, tablinks;
 

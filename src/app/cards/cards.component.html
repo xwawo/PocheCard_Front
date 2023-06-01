@@ -6,16 +6,16 @@
 
         <!-- Tab links -->
         <div class="container-fluid tab">
-            <button class="tablinks" (click)="openCity($event, 'Display')">Afficher</button>
-            <button class="tablinks" (click)="openCity($event, 'Create')">Créer</button>
+            <button class="tablinks" (click)="openCard($event, 'Display')">Afficher</button>
+            <button class="tablinks" (click)="openCard($event, 'Create')">Créer</button>
         </div>
     
         <!-- Tab content -->
-        <div id="Display" class="tabcontent">
+        <div id="Display" class="tabcontent" style="display: none;">
             <app-display></app-display>
         </div>
         
-        <div id="Create" class="tabcontent">
+        <div id="Create" class="tabcontent" style="display: none;">
             <app-create></app-create>
         </div>
 

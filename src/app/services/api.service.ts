@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Card } from '../models/Card';
 import {NgForm} from '@angular/forms';
 import {User} from "../models/User";
 
@@ -11,27 +10,38 @@ import {User} from "../models/User";
 })
 export class ApiService {
 
-  apiBaseUrl = 'http://reverse-proxy:80/api';
+  apiBaseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': this.apiBaseUrl,    // '*',
-      'Content-Type': 'application/json, Access-Control-Allow-Origin'
+      'Access-Control-Allow-Origin': '*',    
+      'responseType': 'json'
+      // 'Content-Type': 'application/json, Access-Control-Allow-Origin'
     }),
   };
 
 
   //------------ METHOD GET -----------//
 
-  getCards(): Observable<getApiCards> {
-    return this.http.get<getApiCards>(this.apiBaseUrl+ '/cards');
+  getCards(): Observable<getCards> {
+    return this.http.get<getCards>(this.apiBaseUrl+ '/cards');
   }
 
+  //------------ METHOD DELETE -----------//
+
   getCardById(id: number): Observable<deleteCard> {
-    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/cards/'+ id, this.httpOptions); //
+    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/cards/'+ id, this.httpOptions); 
   }
+
+
+  //------------ METHOD PUT -----------//
+
+  update(data: NgForm): Observable<NgForm> {  
+    return this.http.put<NgForm>(this.apiBaseUrl + '/cards', data, this.httpOptions); 
+  }
+
 
   //------------ METHOD POST -----------//
 
@@ -58,7 +68,7 @@ export class ApiService {
 
 //------------ INTERFACES -----------//
 
-export interface getApiCards {
+export interface getCards {
   
   id: number;
   name: String;
