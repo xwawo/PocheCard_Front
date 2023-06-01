@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -27,10 +28,14 @@ export class DisplayComponent implements OnInit {
     this.card = data;
   }
 
+  public updateCard(card: NgForm) {
+    console.warn(JSON.stringify(card.value));
+    this.apiService.update(card.value).subscribe((res: NgForm) => { 
+    });
+  }
+
   public ondelete(id: number) {
-    console.warn(JSON.stringify(id));
-    this.apiService.getCardById(id).subscribe((res: any)=>{
-      console.warn(res);   
+    this.apiService.getCardById(id).subscribe((res: any)=>{  
       }); 
   }
 
