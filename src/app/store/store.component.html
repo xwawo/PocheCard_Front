@@ -1,18 +1,98 @@
+
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Gestion de store</h4>
+                        <h4 class="card-title "> Gestion de store </h4>
                         <p class="card-category"> Vente, achat des Cards et transaction des cards. </p>
                     </div>
 
                     <div class="scrollbarClass card-body">
                         <div class="table-responsive">
-                            
+                            <table class="table table-bordered mt-3">
+                                <thead class="thead-light text-primary">
+                                    <th>
+                                        N°
+                                    </th>
+                                    <th>
+                                        USER ID
+                                    </th>
+                                    <th>
+                                        CARD ID 
+                                    </th>
+                                    <th>
+                                        PRIX
+                                    </th>
+                                    <th>
+                                        EN VENTE 
+                                    </th>
+                                    
+                                    
+                                </thead>
+                                
+                                <tbody>
+                                    <!-- <div *ngIf="cards"; else BlockElse> -->
+                                        <tr *ngFor="let p of cards; index as i">
+                                            <td>
+                                                {{i+1 }}
+                                            </td>
+                                            <td>
+                                                {{ p.userId }}
+                                            </td>
+                                            <td>
+                                                {{ p.cardId }}
+                                            </td>
+                                            <td>
+                                                {{ p.price }}
+                                            </td>
+                                            
+                                            <td>
+                                                <button mat-raised-button type="submit" class="btn btn-danger pull-right" data-toggle="modal" data-target="#achatModal">Achat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                    <!-- </div> -->
+                                </tbody>
+                                
+                                <!-- <div #BlockElse="">
+                                    <p> Aucune données disponible </p>
+                                </div> -->
+
+                            </table>
                         </div>
                     </div>
+
+                    <!-- Modal -->
+                    
+
+                    <div class="modal fade" id="achatModal" tabindex="-1" role="dialog" aria-labelledby="achatModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="achatModalLabel"> Souhaitez-vous faire cet achat ? </h5>
+                                    
+                                </div>
+                                <div class="modal-body">
+                                    
+                                    <form #formData="ngForm"  > 
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                                            <button type="submit" class="btn btn-primary">Oui</button>
+                                        </div>
+                                    
+                                    </form>
+
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

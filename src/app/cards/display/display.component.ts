@@ -17,11 +17,7 @@ export class DisplayComponent implements OnInit {
   } 
 
   ngOnInit(): void {
-
-    this.apiService.getCards().subscribe((res: any) => { 
-      this.cards=res;
-
-    } );
+    this.refreshPage()
   }
 
   public getCard(data: any) {
@@ -31,12 +27,26 @@ export class DisplayComponent implements OnInit {
   public updateCard(card: NgForm) {
     console.warn(JSON.stringify(card.value));
     this.apiService.update(card.value).subscribe((res: NgForm) => { 
+      this.refreshPage()
+    });
+  }
+
+  public venteCard(vendu: NgForm) {
+    console.warn(JSON.stringify(vendu.value));
+    this.apiService.venteCard(vendu.value).subscribe((res: NgForm) => { 
     });
   }
 
   public ondelete(id: number) {
     this.apiService.getCardById(id).subscribe((res: any)=>{  
-      }); 
+      this.refreshPage()
+    }); 
+  }
+
+  private refreshPage() {
+    this.apiService.getCards().subscribe((res: any) => { 
+      this.cards=res;
+    });
   }
 
   

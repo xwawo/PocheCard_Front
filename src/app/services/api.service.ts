@@ -17,8 +17,7 @@ export class ApiService {
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',    
-      'responseType': 'json'
-      // 'Content-Type': 'application/json, Access-Control-Allow-Origin'
+      'Content-Type': 'application/json, Access-Control-Allow-Origin'
     }),
   };
 
@@ -27,6 +26,10 @@ export class ApiService {
 
   getCards(): Observable<getCards> {
     return this.http.get<getCards>(this.apiBaseUrl+ '/cards');
+  }
+
+  getAllCardsToSell(): Observable<CardsToSell> {
+    return this.http.get<CardsToSell>(this.apiBaseUrl+ '/stores/orders');   
   }
 
   //------------ METHOD DELETE -----------//
@@ -46,7 +49,7 @@ export class ApiService {
   //------------ METHOD POST -----------//
 
   createCard(data: NgForm): Observable<NgForm> {  
-    return this.http.post<NgForm>(this.apiBaseUrl + '/cards', data);  // , this.httpOptions
+    return this.http.post<NgForm>(this.apiBaseUrl + '/cards', data);  
   }
 
   registerUser(data: User): Observable<any[]> {
@@ -60,7 +63,11 @@ export class ApiService {
   }
 
   loginUser(username : String, password : String): Observable<any> {
-    return this.http.post<any[]>(this.apiBaseUrl+ "/users/auth/"+ username +'/'+ password, this.httpOptions);  // , this.httpOptions
+    return this.http.post<any[]>(this.apiBaseUrl+ "/users/auth/"+ username +'/'+ password, this.httpOptions); 
+  }
+
+  venteCard(data: NgForm): Observable<NgForm> {  
+    return this.http.post<NgForm>(this.apiBaseUrl+ '/stores/sell', data);  
   }
 
 
@@ -88,5 +95,14 @@ export interface getCards {
 export interface deleteCard {
   
   id: number;
+  
+}
+
+export interface CardsToSell {
+  
+  id: number;
+  userId: number;
+	cardId: number;
+	price: number;
   
 }

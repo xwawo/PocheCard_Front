@@ -4,8 +4,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Affichage des Cards</h4>
-                        <p class="card-category"> Différents cards à la vente </p>
+                        <h4 class="card-title ">Afficher</h4>
+                        <p class="card-category"> Lister toutes les cards enregistrées </p>
                     </div>
 
                     <div class="scrollbarClass card-body">
@@ -50,6 +50,9 @@
                                     </th>
                                     <th>
                                         Update
+                                    </th>
+                                    <th>
+                                        Vente
                                     </th>
                                     <th>
                                         Delete
@@ -99,6 +102,9 @@
                                                 <button mat-raised-button type="submit" (click)="getCard(p)" class="btn btn-danger pull-right" data-toggle="modal" data-target="#exampleModal">Update</button>
                                             </td>
                                             <td>
+                                                <button mat-raised-button type="submit" (click)="getCard(p)" class="btn btn-danger pull-right" data-toggle="modal" data-target="#venteModal">Mettre en vente</button>
+                                            </td>
+                                            <td>
                                                 <button mat-raised-button type="submit" (click)="ondelete(p.id)" class="btn btn-danger pull-right">Delete</button>  
                                             </td>
                                         </tr>
@@ -113,9 +119,8 @@
                         </div>
                     </div>
 
-                    <!-- Modal -->
-                    
 
+                    <!-- MODAL UPDATE -->
                     <div *ngIf="card!=null" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -211,6 +216,48 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- MODAL UPDATE -->
+                    <div *ngIf="card!=null" class="modal fade" id="venteModal" tabindex="-1" role="dialog" aria-labelledby="venteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="venteModal"> Vendre la card {{ card.name }} - N° {{ card.id }} </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                    <form #formData="ngForm"  (ngSubmit)="venteCard(formData)"> 
+
+                                        <input matInput type="hidden" ngModel="null" name="id">
+
+                                        <input matInput type="hidden" ngModel="1" name="userId"> 
+
+                                        <input matInput type="hidden" ngModel='{{card.id}}' name="cardId">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Entrer le prix" type="text" ngModel name="price">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Vendre</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
 
                 </div>
