@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { UserProfileComponent} from "./user-profile/user-profile.component";
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 const routes: Routes =[
   {
@@ -27,7 +27,7 @@ const routes: Routes =[
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes,{
-       useHash: true
+       useHash: false
     })
   ],
   exports: [

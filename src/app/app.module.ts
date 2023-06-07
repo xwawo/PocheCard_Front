@@ -1,12 +1,14 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
-import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app.routing';
+import {ComponentsModule} from './components/components.module';
+import {AppComponent} from './app.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AuthInterceptor} from "./services/auth-interceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
+    MatSnackBarModule,
     RouterModule,
     AppRoutingModule,
   ],
@@ -23,7 +26,13 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AppComponent,
     AdminLayoutComponent,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

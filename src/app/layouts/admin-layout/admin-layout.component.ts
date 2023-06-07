@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Location, PopStateEvent} from '@angular/common';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
-import { filter, Subscription } from 'rxjs';
+import {filter, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-admin-layout',

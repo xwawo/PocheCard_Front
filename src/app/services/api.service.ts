@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {User} from "../models/User";
 
@@ -59,7 +59,7 @@ export class ApiService {
         'responseType': 'json'
       })
     }
-    return this.http.post<any[]>(this.apiBaseUrl+ '/users',data, optionRequete)
+    return this.http.post<any[]>(this.apiBaseUrl + '/users',data, optionRequete)
   }
 
   loginUser(username : String, password : String): Observable<any> {
@@ -67,7 +67,7 @@ export class ApiService {
       'username': username,
       'password': password
     }
-    return this.http.post<any[]>(this.apiBaseUrl, loginRequest, this.httpOptions);  // , this.httpOptions
+    return this.http.post<any[]>(this.apiBaseUrl + "/users/auth", loginRequest, this.httpOptions);  // , this.httpOptions
   }
 
   venteCard(data: NgForm): Observable<NgForm> {  

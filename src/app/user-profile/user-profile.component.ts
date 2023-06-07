@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../models/User";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiService} from "../services/api.service";
-import { UserService } from '../services/user.service';
+import {UserService} from '../services/user.service';
+import {AuthService} from "../services/auth-service";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class UserProfileComponent implements OnInit {
   constructor(
       private http: HttpClient,
       private apiService: ApiService,
+      private authService: AuthService,
       private userService: UserService
   ) {
     this.isLogged = false;
@@ -75,8 +77,9 @@ export class UserProfileComponent implements OnInit {
              this.isLogged = true;
              console.log("User logged in",response);
              alert('User logged in successfully')
-             this.user = response as unknown as User;
+             this.user = response.user as unknown as User;
              this.userService.setUser(this.user);
+             this.authService.setJWTtoken(response.token);
            }
               else {
                 console.log("User not logged in", response);
