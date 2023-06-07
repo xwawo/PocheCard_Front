@@ -65,4 +65,4 @@ $ npm start
    - Via : [https://localhost/](https://localhost:80)
 
 ## Vidéo de présentation
-![[Vidéo de présentation des fonctionnalités](./documentation/img_frontend.PNG)](https://youtu.be/OW3wJ41cr1Y)
+[![Vidéo de présentation](./documentation/img_frontend.PNG)](https://youtu.be/OW3wJ41cr1Y)
