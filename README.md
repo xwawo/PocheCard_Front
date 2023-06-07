@@ -1,27 +1,69 @@
-# pochemonCardTheGame
+
+# Projet Micro-services
+
+## Sommaire
+- [Introduction](https://github.com/xwawo/PocheCard_Front#introduction)
+- [Membres](https://github.com/xwawo/PocheCard_Front#membres)
+- [Installation](https://github.com/xwawo/PocheCard_Front#installation)
+- [Vidéo de présentation](https://github.com/xwawo/PocheCard_Front#vidéo-de-présentation)
+
+
+## Introduction
+
 PochemonCard - The Game
 
+### Atelier I
 
-# Membres du groupe :
+#### Elements realisés du cahier des charges :
+
+*Implémentation de la partie serveur, ses controleurs services associés (Card Service, User Service, Store Service)*
+
+#### Foctionnalités :
+
+*Log in, affichage d'une carte, achat d'une carte, voir la liste des carte en vente, mettre en vente une carte*
+
+#### Elements non realisés :
+
+*Implémentation de la partie client, Interface (UI) . On a testé le serveur avec des appels HTTP sur Postman.*
+
+### Atelier II
+
+
+## Membres
+
 - Francois Cheval
 - Martin Jourjon
 - Xavier Gauchoux
 - Guth Moelle
 - Walid Iqbal
 
-# Atelier I
 
-### Elements realisés du cahier des charges :
+## Installation
+### NodeJS
+Node est nécessaire pour le lancement du projet, le projet a été développé sous la v16.13.2.
+Les informations concernant son installation se trouvent [ici](https://nodejs.org/en/download/)
 
-*Implémentation de la partie serveur, ses controleurs services associés (Card Service, User Service, Store Service)*
+### Projet FrontEnd
+1. Clonage du projet et cd dans le répertoire
+```Bash
+$ git clone https://github.com/xwawo/PocheCard_Front
+$ cd ./groupe-3-rat-team
+```
 
-### Foctionnalités :
+2. Installation des dépendances
+```Bash
+$ npm install
+```
 
-*Log in, affichage d'une carte, achat d'une carte, voir la liste des carte en vente, mettre en vente une carte*
+3. Lancement de l'application
+```Bash
+$ npm start
+```
 
-### Elements non realisés :
+4. Accès à l'application
 
-*Implémentation de la partie client, Interface (UI) . On a testé le serveur avec des appels HTTP sur Postman.*
+   - Via FrontEnd : [https://localhost/](https://localhost:80/)
+   - Via BackEnd : [http://localhost/](https://localhost/)
 
 
-# Atelier II
+## Vidéo de présentation
