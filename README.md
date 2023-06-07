@@ -46,7 +46,7 @@ Les informations concernant son installation se trouvent [ici](https://nodejs.or
 ### Projet FrontEnd
 1. Clonage du projet et cd dans le répertoire
 ```Bash
-$ git clone https://github.com/xwawo/PocheCard_Front
+$ git clone https://github.com/xwawo/PocheCard_Front.git
 $ cd ./PocheCard_Front
 ```
 
