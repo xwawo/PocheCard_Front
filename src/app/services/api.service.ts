@@ -67,7 +67,13 @@ export class ApiService {
       'username': username,
       'password': password
     }
-    return this.http.post<any[]>(this.apiBaseUrl + "/users/auth", loginRequest, this.httpOptions);  // , this.httpOptions
+    const optionRequete = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'responseType': 'json'
+      })
+    }
+    return this.http.post<any[]>(this.apiBaseUrl + "/users/auth", loginRequest, optionRequete);  // , this.httpOptions
   }
 
   venteCard(data: NgForm): Observable<NgForm> {  
