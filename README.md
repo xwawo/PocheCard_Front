@@ -1,5 +1,5 @@
 
-# Projet Micro-services
+# Projet Micro-services FrontEnd
 
 ## Sommaire
 - [Introduction](https://github.com/xwawo/PocheCard_Front#introduction)
@@ -62,8 +62,7 @@ $ npm start
 
 4. Accès à l'application
 
-   - Via FrontEnd : [https://localhost/](https://localhost:80)
-   - Via BackEnd : [http://localhost/](https://localhost:80)
+   - Via : [https://localhost/](https://localhost:80)
 
 
 ## Vidéo de présentation
