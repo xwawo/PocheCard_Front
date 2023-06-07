@@ -21,6 +21,13 @@ export class ApiService {
     }),
   };
 
+  optionRequete = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'responseType': 'json'
+    })
+  }
+
 
   //------------ METHOD GET -----------//
 
@@ -35,14 +42,14 @@ export class ApiService {
   //------------ METHOD DELETE -----------//
 
   getCardById(id: number): Observable<deleteCard> {
-    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/cards/'+ id, this.httpOptions); 
+    return this.http.delete<deleteCard>(this.apiBaseUrl+ '/cards/'+ id, this.optionRequete); 
   }
 
 
   //------------ METHOD PUT -----------//
 
   update(data: NgForm): Observable<NgForm> {  
-    return this.http.put<NgForm>(this.apiBaseUrl + '/cards', data, this.httpOptions); 
+    return this.http.put<NgForm>(this.apiBaseUrl + '/cards', data, this.optionRequete); 
   }
 
 
