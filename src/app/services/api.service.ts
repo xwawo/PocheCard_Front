@@ -63,7 +63,11 @@ export class ApiService {
   }
 
   loginUser(username : String, password : String): Observable<any> {
-    return this.http.post<any[]>(this.apiBaseUrl+ "/users/auth/"+ username +'/'+ password, this.httpOptions); 
+    const loginRequest = {
+      'username': username,
+      'password': password
+    }
+    return this.http.post<any[]>(this.apiBaseUrl, loginRequest, this.httpOptions);  // , this.httpOptions
   }
 
   venteCard(data: NgForm): Observable<NgForm> {  
