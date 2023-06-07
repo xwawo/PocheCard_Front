@@ -47,7 +47,7 @@ Les informations concernant son installation se trouvent [ici](https://nodejs.or
 1. Clonage du projet et cd dans le répertoire
 ```Bash
 $ git clone https://github.com/xwawo/PocheCard_Front
-$ cd ./groupe-3-rat-team
+$ cd ./PocheCard_Front
 ```
 
 2. Installation des dépendances
@@ -62,8 +62,8 @@ $ npm start
 
 4. Accès à l'application
 
-   - Via FrontEnd : [https://localhost/](https://localhost:80/)
-   - Via BackEnd : [http://localhost/](https://localhost/)
+   - Via FrontEnd : [https://localhost/](https://localhost:80)
+   - Via BackEnd : [http://localhost/](https://localhost:80)
 
 
 ## Vidéo de présentation
