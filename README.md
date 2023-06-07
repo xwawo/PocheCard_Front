@@ -66,4 +66,4 @@ $ npm start
 
 
 ## Vidéo de présentation
-[![Vidéo de présentation des fonctionnalités](Video)](https://youtu.be/OW3wJ41cr1Y)
+[![Vidéo de présentation des fonctionnalités](./documentation/img_frontend.png)](https://youtu.be/OW3wJ41cr1Y)
